@@ -1,6 +1,5 @@
 env:
   CC_TEST_REPORTER_ID: ENCRYPTED[!08f49af6f7492d942d72c3c52eea95314a72665d51a7bbb7bc8d086166f8492ff70fcddb4ae6d0a85ebb70e8b6220aa6!]
-
 container:
   image: cirrusci/android-sdk:30
   cpu: 4
@@ -45,7 +44,6 @@ check_android_task:
     export JACOCO_SOURCE_PATH=app/src/main/java/
     ./cc-test-reporter format-coverage ./app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml --input-type jacoco
     ./cc-test-reporter upload-coverage
-  
   lint_script:
     ./gradlew lintDebug
   always:
@@ -54,7 +52,7 @@ check_android_task:
       sleep 2
     screenrecord_artifacts:
       path: "*.h264"
-        android_lint_artifacts:
+    android_lint_artifacts:
       path: ./app/build/reports/lint-results-debug.xml
       format: android-lint
     test_artifacts:
